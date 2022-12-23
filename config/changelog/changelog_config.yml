@@ -1,0 +1,39 @@
+generating:
+  # custom(from, to required),
+  # two_last(1.5.1..1.5.2, regex required),
+  # last_head(1.5.2..head, regex, version required),
+  # tail_last(inti_tag..1.5.2, regex required),
+  # tail_head(all_tags, version required)
+  range:
+    mode: "custom"
+    from: "1.5.0"
+    to: "1.5.2"
+    regex: "^[0-9]+.[0-9]+.[0-9]+$"
+  # The version to generate the changelog for. The format must follow semantic versioning
+  version: "1.5.2"
+  # The date and time of the release. Defaults to the current time.
+  date: "12/22/2022"
+  # The merge request link. Defaults is true.
+  PR_link: "true"
+
+output:
+  # default no
+  enable: "yes"
+  # The file to commit the changes to. Defaults to CHANGELOG.md.
+  path: "CHANGELOG.md"
+  # The branch to commit the changelog changes to.
+  branch: "master"
+  # The commit message to use when committing the changes.
+  # Defaults to Add changelog for version X, where X is the value of the version argument.
+  commit_message: "Add changelog for version X"
+
+trailer:
+  # default "no" (commit message should use this template -> tag(scope): title)
+  enable: "yes"
+  # The Git trailer to use for including commits. Defaults to Changelog. Case-sensitive: Example does not match example or eXaMpLE.
+  tag: "Changelog"
+
+categories:
+  feature: "Features"
+  bug: "Bug fixes"
+  performance: "Performance improvements"
