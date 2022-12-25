@@ -102,12 +102,12 @@ Merge branch '201-check-being-not-empty-text-fields' into 'develop-ui-compose' (
         PR_link_regex = re.compile(r"(!\d*)")
         PR_link = PR_link_regex.search(merge_branch).group()
         if (len(commit) > 2):
-            descriptons = commit[1:-1:]
+            descriptions = commit[1:-1:]
             r = re.compile('changelog:')
-            for descripton in descriptons:
-                if (r.match(descripton)):
-                    trailer = descripton.split(":")[1].strip()
-                    descriptons.remove(descripton)
+            for description in descriptions:
+                if (r.match(description)):
+                    trailer = description.split(":")[1].strip()
+                    descriptions.remove(description)
         print(commit_id,merge,author,commit_date,title,PR_link,trailer)
 
 
