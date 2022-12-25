@@ -6,19 +6,21 @@ generating:
   # tail_head(all_tags, version required)
   range:
     mode: "custom"
-    from: "1.5.0"
-    to: "1.5.2"
-    regex: "^[0-9]+.[0-9]+.[0-9]+$"
+    from: "1.1.22-usign"
+    to: "1.2.3-usign"
+    regex: "^[0-9]+.[0-9]+.[0-9]+-usign$"
   # The version to generate the changelog for. The format must follow semantic versioning
   version: "1.5.2"
   # The date and time of the release. Defaults to the current time.
   date: "12/22/2022"
   # The merge request link. Defaults is true.
-  PR_link: "true"
+  PR_link_enabled: "true"
+  # The merge request author. Defaults is false.
+  PR_author_enabled: "false"
 
 output:
-  # default no
-  enable: "yes"
+  # default false
+  enabled: "true"
   # The file to commit the changes to. Defaults to CHANGELOG.md.
   path: "CHANGELOG.md"
   # The branch to commit the changelog changes to.
@@ -28,12 +30,18 @@ output:
   commit_message: "Add changelog for version X"
 
 trailer:
-  # default "no" (commit message should use this template -> tag(scope): title)
-  enable: "yes"
-  # The Git trailer to use for including commits. Defaults to Changelog. Case-sensitive: Example does not match example or eXaMpLE.
-  tag: "Changelog"
+  # default "false" (commit message should use this template -> tag(scope): title)
+  enabled: "true"
+  # The Git trailer to use for including commits. Defaults to descriptons. Case-sensitive: Example does not match example or eXaMpLE.
+  tag: "descriptons"
 
 categories:
-  feature: "Features"
-  bug: "Bug fixes"
-  performance: "Performance improvements"
+  feat: "🚀 Features"
+  fix: "🐛 Bug Fixes"
+  break: "💥 Breaking Changed"
+  deprecate: "💀 New Deprecation"
+  remove: "🗑 Feature Removal"
+  security: "🔒 Security Fix"
+  perf: "💯 Performance Improvement"
+  doc: "📑 Documentation"
+  other: "💭 Other"
