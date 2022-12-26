@@ -31,7 +31,7 @@ output:
 
 trailer:
   # default "false" (commit message should use this template -> tag(scope): title)
-  enabled: "true"
+  enabled: "false"
   # The Git trailer to use for including commits. Defaults to descriptons. Case-sensitive: Example does not match example or eXaMpLE.
   tag: "descriptons"
 
