@@ -1,39 +1,43 @@
 generating:
-  # custom(from, to required),
-  # two_last(1.5.1..1.5.2, regex required),
+  # custom(from, to, version required),
+  # two_last(1.5.1..1.5.2, regex required) **default,
   # last_head(1.5.2..head, regex, version required),
-  # tail_last(inti_tag..1.5.2, regex required),
+  # tail_last(init_tag..1.5.2, regex required),
   # tail_head(all_tags, version required)
   range:
-    mode: "custom"
-    from: "1.1.22-usign"
-    to: "1.2.3-usign"
-    regex: "^[0-9]+.[0-9]+.[0-9]+-usign$"
+    mode: "two_last"
+    from: "ch-test"
+    to: "1.2.6"
+    regex: "^[0-9]+.[0-9]+.[0-9]+$"
   # The version to generate the changelog for. The format must follow semantic versioning
-  version: "1.5.2"
+  # version: "1.5.2"
   # The date and time of the release. Defaults to the current time.
-  date: "12/22/2022"
+  # date: "2022/12/22"
   # The merge request link. Defaults is true.
   PR_link_enabled: "true"
+  # The merge request path. When `PR_link_enabled` is true you should provide a `PR_path`
+  PR_path: "digitalSignature/android/digital-sign-sdk"
   # The merge request author. Defaults is false.
   PR_author_enabled: "false"
 
-output:
+output_file:
   # default false
   enabled: "true"
   # The file to commit the changes to. Defaults to CHANGELOG.md.
-  path: "CHANGELOG.md"
-  # The branch to commit the changelog changes to.
-  branch: "master"
+  path: "./CHANGELOG.md"
+  # Changelog delimiter separate header of changelog message. Default is `---`
+  delimiter: "---"
+  # The branch to commit the changelog changes to. Default master.
+  branch: "develop-ui-compose"
   # The commit message to use when committing the changes.
-  # Defaults to Add changelog for version X, where X is the value of the version argument.
-  commit_message: "Add changelog for version X"
+  # Defaults to Update CHANGELOG.md.
+  commit_message: "Update CHANGELOG.md"
 
 trailer:
   # default "false" (commit message should use this template -> tag(scope): title)
   enabled: "false"
-  # The Git trailer to use for including commits. Defaults to descriptons. Case-sensitive: Example does not match example or eXaMpLE.
-  tag: "descriptons"
+  # The Git trailer to use for including commits. Defaults to changelog. Case-sensitive: Example does not match example or eXaMpLE.
+  tag: "changelog"
 
 categories:
   feat: "🚀 Features"
